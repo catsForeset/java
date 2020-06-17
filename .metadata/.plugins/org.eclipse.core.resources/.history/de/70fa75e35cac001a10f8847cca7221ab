@@ -1,0 +1,8 @@
+package mytest;
+
+public class First {
+	public static void main(String []args) {
+        System.out.println("byte 二进制位数：" + Byte.SIZE);
+        System.out.println("byte 最大最小值：" + Byte.MAX_VALUE + Byte.MIN_VALUE)
+    }
+}

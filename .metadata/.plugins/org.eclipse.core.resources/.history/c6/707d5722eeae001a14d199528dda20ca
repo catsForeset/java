@@ -1,0 +1,28 @@
+package mytest;
+
+public class CharacterTest {
+	public static void main(String[] args) {
+		//Character 类的创建方法
+		Character ch = new Character('a');
+		System.out.println(ch);
+		//自动创建 Character 类
+		Character c = 'a';
+		System.out.println(c);
+		
+		
+		//Character 类的方法
+		System.out.println("c isLetter : " + Character.isLetter('c'));
+		System.out.println("c isDigit : " + Character.isDigit('c'));
+		System.out.println("5 isDigit : " + Character.isDigit('5'));
+		//空白符包含：空格、tab 键、换行符
+		System.out.println("c isWhitespace : " + Character.isWhitespace('c'));
+		System.out.println("space isWhitespace : " + Character.isWhitespace(' '));
+		System.out.println("\\t isWhitespace : " + Character.isWhitespace('\t'));
+		System.out.println("\\n isWhitespace : " + Character.isWhitespace('\n'));
+		System.out.println("c isWhitespace : " + Character.isUpperCase('c'));
+		System.out.println("C isWhitespace : " + Character.isUpperCase('C'));
+		System.out.println("c isWhitespace : " + Character.isLowerCase('c'));
+		System.out.println("C isWhitespace : " + Character.isLowerCase('C'));
+		
+	}
+}

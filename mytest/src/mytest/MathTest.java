@@ -1,0 +1,21 @@
+package mytest;
+
+public class MathTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//将 number 对象转换为 xxx 数据类型的值并返回
+		//所有的包装类（Integer、Long、Byte、Double、Float、Short）都是抽象类 Number
+		Integer x = 5;
+		System.out.println(x.byteValue());
+		System.out.println(x.doubleValue());
+		System.out.println(x.longValue());
+		System.out.println(x.floatValue());
+		
+		//两个相同数据类型的 Number 对象比较
+		System.out.println(x + " compare to 3:" + x.compareTo(3));
+		System.out.println(x + " compare to 5:" +x.compareTo(5));
+		System.out.println(x + " compare to 8:" +x.compareTo(8));
+	}
+
+}

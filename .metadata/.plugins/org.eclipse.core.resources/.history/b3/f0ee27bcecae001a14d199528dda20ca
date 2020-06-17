@@ -1,0 +1,12 @@
+package mytest;
+
+public class CharacterTest {
+	public static void main(String[] args) {
+		//Character 类的创建方法
+		Character ch = new Character('a');
+		System.out.println(ch);
+		//自动创建 Character 类
+		Character c = 'a';
+		System.out.println(c);
+	}
+}

@@ -1,0 +1,11 @@
+package mytest;
+
+public class StringTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String str = new String(" This is a string");
+		System.out.println(str);
+	}
+
+}

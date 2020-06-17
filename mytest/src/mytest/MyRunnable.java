@@ -1,0 +1,28 @@
+package mytest;
+
+//eclipse创建类时，可再Interfaces选项查找要继承的类/接口，会自动加载成继承语句
+public class MyRunnable implements Runnable {
+	private volatile boolean active;
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		active = true;
+		int i = 0;
+		while (active) {
+			i++;
+			System.out.println(i);
+		}
+	}
+	
+	public void stop()
+	{
+		active = false;
+	}
+	
+	public static void main(String[] args)
+	{
+		MyRunnable mr = new MyRunnable();
+		mr.run();
+		mr.stop();
+	}
+}

@@ -1,0 +1,30 @@
+package mytest;
+
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int x = 10;
+	      while( x < 20 ) {
+	         System.out.print("value of x : " + x );
+	         x++;
+	         System.out.print("\n");
+	      }
+	      //先执行一次，再判断条件
+	      do {
+	    	 System.out.print("value of x in do while : " + x );
+	         x++;
+	         System.out.print("\n");
+	      }while(x < 20);
+	      
+	      //增强 for 循环
+	      int [] numbers = {39,350,44,45,339,99};
+	      for(int num : numbers) {
+	    	  System.out.print(num);
+	    	  System.out.print(',');
+	      }
+	      System.out.print('\n');
+	      String [] strs = {"ttt","www","kkk","ddjkdf"};
+	}
+
+}

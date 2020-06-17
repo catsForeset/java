@@ -1,0 +1,12 @@
+package mytest;
+
+public class MathTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//将 number 对象转换为 xxx 数据类型的值并返回
+		Integer x = 6;
+		System.out.println(x.byteValue());
+	}
+
+}
