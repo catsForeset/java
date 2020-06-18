@@ -54,6 +54,20 @@ public class StringTest {
 		//endsWith() 判断字符串对象是否以指定后缀结尾
 		System.out.println("Is " + str3 + " endsWith 123 ? \t" + str3.endsWith("123"));
 		
+		
+		//indexOf() 返回字符、字符串第一次出现的位置
+		System.out.println("The indexOf the a in " + str1 + " is: " +str1.indexOf('a'));
+		System.out.println("The indexOf the s in " + str1 + " is: " +str1.indexOf('s'));
+		System.out.println("The indexOf the s begin in index 1 in " + str1 + " is: " +str1.indexOf('s',1));
+		//lastIndexOf() 返回字符、字符串最后一次出现的位置
+		System.out.println("The lastIndexOf the a in " + str1 + " is: " +str1.lastIndexOf('a'));
+		System.out.println("The lastIndexOf the s in " + str1 + " is: " +str1.lastIndexOf('s'));
+		System.out.println("The lastIndexOf the s begin in index 5 in " + str1 + " is: " +str1.lastIndexOf('s',5));//反向查询
+		
+		
+		//matches() 检验字符串对象与给定的正则表达式是否匹配
+		
+		
 	};
 
 }
