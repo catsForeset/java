@@ -19,6 +19,41 @@ public class StringTest {
 		//contact 连接字符串
 		System.out.println("连接字符串".concat(chtostr));
 		
-	}
+		
+		//输出格式化字符串
+		String fs;
+		fs = String.format("浮点型:%f,"+"整形:%d,"+"字符串:%s", 2.21,2,"This is a string");
+		System.out.println(fs);
+		System.out.printf("浮点型:%f,"+"整形:%d,"+"字符串:%s", 2.21,2,"This is a string");
+		System.out.print('\n');
+		
+		
+		//charAt() 返回指定索引处的字符，范围我 0 到 length()-1
+		String s = "String";
+		System.out.println(s.charAt(2));
+		
+		
+		//compareTo() 两个字符串逐字符比较ASCII码对比，对比到有差异的字符，返回它们之间的差值
+		String str1 = "strings";
+        String str2 = "Strings";
+        String str3 = "Strings123";
+        int result = str1.compareTo( str2 );
+        System.out.println(str1 + " compareTo " + str2 + " : " + result);
+        result = str2.compareTo( str3 );
+        System.out.println(str2 + " compareTo " + str3 + " : " + result);
+        result = str3.compareTo( str1 );
+        System.out.println(str3 + " compareTo " + str1 + " : " + result);
+		result = str1.compareToIgnoreCase( str2 );
+        System.out.println(str1 + " compareToIgnoreCase " + str2 + " : " + result);
+        result = str2.compareTo( str3 );
+        System.out.println(str2 + " compareToIgnoreCase " + str3 + " : " + result);
+        result = str3.compareTo( str1 );
+        System.out.println(str3 + " compareToIgnoreCase " + str1 + " : " + result);
+		
+		
+		//endsWith() 判断字符串对象是否以指定后缀结尾
+		System.out.println("Is " + str3 + " endsWith 123 ? \t" + str3.endsWith("123"));
+		
+	};
 
 }
