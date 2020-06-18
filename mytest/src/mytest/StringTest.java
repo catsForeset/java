@@ -68,6 +68,9 @@ public class StringTest {
 		//matches() 检验字符串对象与给定的正则表达式是否匹配
 		
 		
+		//replace() 将旧的字符换成指定的新字符,返回新的字符串对象
+		System.out.println( str1 + "replace s to a : " + str1.replace('s','a'));
+		
 	};
 
 }
