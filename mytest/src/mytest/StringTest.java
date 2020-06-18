@@ -53,6 +53,8 @@ public class StringTest {
 		
 		//endsWith() 判断字符串对象是否以指定后缀结尾
 		System.out.println("Is " + str3 + " endsWith 123 ? \t" + str3.endsWith("123"));
+		//startsWith() 判断字符串对象是否以指定前缀开始
+		System.out.println("Is " + str3 + " startsWith S ? \t" + str3.startsWith('S'));
 		
 		
 		//indexOf() 返回字符、字符串第一次出现的位置
