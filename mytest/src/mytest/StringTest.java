@@ -28,7 +28,7 @@ public class StringTest {
 		System.out.print('\n');
 		
 		
-		//charAt() 返回指定索引处的字符，范围我 0 到 length()-1
+		//charAt() 返回指定索引处的字符，范围是 0 到 length()-1
 		String s = "String";
 		System.out.println(s.charAt(2));
 		
@@ -51,10 +51,10 @@ public class StringTest {
         System.out.println(str3 + " compareToIgnoreCase " + str1 + " : " + result);
 		
 		
-		//endsWith() 判断字符串对象是否以指定后缀结尾
+		//endsWith(String) 判断字符串对象是否以指定后缀结尾
 		System.out.println("Is " + str3 + " endsWith 123 ? \t" + str3.endsWith("123"));
 		//startsWith() 判断字符串对象是否以指定前缀开始
-		System.out.println("Is " + str3 + " startsWith S ? \t" + str3.startsWith('S'));
+		System.out.println("Is " + str3 + " startsWith S ? \t" + str3.startsWith("S"));
 		
 		
 		//indexOf() 返回字符、字符串第一次出现的位置
@@ -70,9 +70,34 @@ public class StringTest {
 		//matches() 检验字符串对象与给定的正则表达式是否匹配
 		
 		
-		//replace() 将旧的字符换成指定的新字符,返回新的字符串对象
+		//replace(oldstring,newstring) 将旧的字符换成指定的新字符,返回新的字符串对象
 		System.out.println( str1 + "replace s to a : " + str1.replace('s','a'));
 		
+		
+		//substring(beginIndex[,endIndex]) 返回字符串对象指定索引下的子字符串
+		System.out.println(str3.substring(1));
+		System.out.println(str3.substring(7,8));
+		
+		
+		//toCharArray() 将字符串对象转为字符串数组
+		System.out.println(str3.toCharArray());
+		System.out.println(ch);
+		
+		
+		//toLowerCase() 将字符串所有字符转为小写，并返回小写字符串
+		System.out.println(str3.toLowerCase());
+		//toUpperCase() 将字符串所有字符转为大写，并返回大写字符串
+		System.out.println(str3.toUpperCase());
+		
+		
+		//toString() 返回字符串对象本身
+		System.out.println(str3.toString());
+		
+		
+		//trim() 忽略字符串前导空白和尾部空白，返回字符串
+		String str4 = " String s ";
+		System.out.println(str4);
+		System.out.println(str4 + " after trim : " + str4.trim());
 	};
 
 }
