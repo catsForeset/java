@@ -7,7 +7,7 @@ public class StringTest {
 		//Srting 类的创建方法
 		String newstr = new String("This is a string");
 		System.out.println(newstr);
-		//自动创建 String 类
+		//自动创建 String 类,这种方式只适用于 String 类，StringBuffer 类和 StringBuilder 类不适用。
 		String str = "This is a string";
 		System.out.println(str);
 		//字符数组转为 String字符串
