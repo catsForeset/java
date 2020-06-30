@@ -37,5 +37,12 @@ public class DateTest{
 		System.out.printf("%1$s %2$ty-%<tm-%<td %<tH:%<tM:%<tS %<tL %n","printf 输出 年-月-日 时:分:秒 毫秒 : ",date);//此处的 < 之前出现的是 2$,表示第二位变量，因此 < 也表示第二位变量
 		
 		
+		//String 类的日期转换符。实际上 printf 的转换符也是 string 类。
+		System.out.print("oo\n")
+		String str = String.format("%tc",date);
+		System.out.println("String 类输出全部日期信息：" + str);
+		//b 月份简称，B 月份全称
+		System.out.printf("月份")
+		
 	}
 }
