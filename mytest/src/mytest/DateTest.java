@@ -38,11 +38,31 @@ public class DateTest{
 		
 		
 		//String 类的日期转换符。实际上 printf 的转换符也是 string 类。
-		System.out.print("oo\n")
+		System.out.print("\n");
 		String str = String.format("%tc",date);
 		System.out.println("String 类输出全部日期信息：" + str);
-		//b 月份简称，B 月份全称
-		System.out.printf("月份")
+		//Y 年份全称，y年份简称
+		System.out.printf("年份全称：%tY%n",date);
+		System.out.printf("年份简称：%ty%n",date);
+		System.out.printf(Locale.US,"英文年份全称：%tY%n",date);
+		System.out.printf(Locale.US,"英文年份简称：%ty%n",date);
+		//B 月份全称,b 月份简称
+		System.out.printf("月份全称：%tB%n",date);
+		System.out.printf("月份简称：%tb%n",date);
+		System.out.printf(Locale.US,"英文月份全称：%tB%n",date);
+		System.out.printf(Locale.US,"英文月份简称：%tb%n",date);
+		//D 日期全称(不足两位补0)，d 日期简称
+		//H 24小时制(不足两位补0)，I 12小时制
+		System.out.printf("24小时制：%tH%n",date);
+		System.out.printf("12小时制：%tI%n",date);
+		//M 分钟(不足两位补0)，m?
+		System.out.printf("分钟全称：%tM%n",date);
+		System.out.printf("???：%tm%n",date);
+		//A 星期全称，a 星期简称
+		System.out.printf("星期全称：%tA%n",date);
+		System.out.printf("星期简称：%ta%n",date);
+		System.out.printf(Locale.US,"英文星期全称：%tA%n",date);
+		System.out.printf(Locale.US,"英文星期简称：%ta%n",date);
 		
 	}
 }
