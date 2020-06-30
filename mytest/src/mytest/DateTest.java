@@ -21,17 +21,21 @@ public class DateTest{
 		
 		//printf 格式化日期
 		//%t表示格式化日期时间类型，%T是时间日期的大写形式，在%t之后用特定的字母表示不同的输出格式
-		System.out.printf("全部日期和时间信息：%Tc",date);//%n 换行 c
-		System.out.printf("%1$tD%n", date);		
-		//
-		System.out.printf("年-月-日格式：%tF%n",date);  
-		// 
-		System.out.printf("月/日/年格式：%tD%n",date);  
-		//
-		System.out.printf("HH:MM:SS PM格式（12时制）：%tr%n",date);  
-		// 
-		System.out.printf("HH:MM:SS格式（24时制）：%tT%n",date);  
-		// 
-		System.out.printf("HH:MM格式（24时制）：%tR",date);  
+		System.out.printf("全部日期和时间信息：%Tc%n",date);//c ,全部日期格式
+		System.out.printf("年-月-日格式：%tF%n",date);//F,年-月-日格式
+		System.out.printf("月/日/年格式：%1$tD%n",date);//D,月/日/年格式,%1$t 是在 %t 中插入变量编号，1$ 表示变量 1，以 $ 符号结尾（此例只有一个变量）
+		System.out.printf("HH:MM:SS PM格式（12时制）：%tr%n",date);//r,HH:MM:SS PM格式（12时制）
+		System.out.printf("HH:MM格式（24时制）：%tR%n",date);//R,HH:MM格式（24时制）
+		System.out.printf("HH:MM:SS格式（24时制）：%tT%n",date);//T,
+		
+		//%1$s 表示将第一个变量以字符串形式输出。%2$tc 表示将第二个变量以日期形式输出，并且以日期格式化 c 的形式输出。
+		System.out.printf("%1$s %2$tc %n","String Part:",date);
+		//其实 printf 有一套完整的用来输出日期格式的转换符，和 SimpleDateFormat 完全不一样
+		System.out.printf("%1$s %2$ty-%2$tm-%2$td %2$tH:%2$tM:%2$tS %2$tL %n","printf 输出 年-月-日 时:分:秒 毫秒 : ",date);
+		
+		//< 标志，< 标志表示先前被格式化的参数要被再次使用
+		System.out.printf("%1$s %2$ty-%<tm-%<td %<tH:%<tM:%<tS %<tL %n","printf 输出 年-月-日 时:分:秒 毫秒 : ",date);//此处的 < 之前出现的是 2$,表示第二位变量，因此 < 也表示第二位变量
+		
+		
 	}
 }
