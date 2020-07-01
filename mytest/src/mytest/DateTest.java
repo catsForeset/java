@@ -43,7 +43,8 @@ public class DateTest{
 		System.out.println("String 类输出全部日期信息：" + str);
 		//Y 年份全称，y年份简称
 		System.out.printf("年份全称：%tY%n",date);
-		System.out.printf("年份简称：%ty%n",date);
+		System.out.printf("年份简称（后两位）：%ty%n",date);
+		System.out.printf("年份检查（前两位）：%tC%n",date);
 		System.out.printf(Locale.US,"英文年份全称：%tY%n",date);
 		System.out.printf(Locale.US,"英文年份简称：%ty%n",date);
 		//B 月份全称,b 月份简称
@@ -51,13 +52,15 @@ public class DateTest{
 		System.out.printf("月份简称：%tb%n",date);
 		System.out.printf(Locale.US,"英文月份全称：%tB%n",date);
 		System.out.printf(Locale.US,"英文月份简称：%tb%n",date);
-		//D 日期全称(不足两位补0)，d 日期简称
+		//D 月/日/年格式，d 日期全称(不足两位补0)，e日期简称
+		System.out.printf("日期全称：%td%n",date);
+		System.out.printf("日期简称：%te%n",date);
 		//H 24小时制(不足两位补0)，I 12小时制
 		System.out.printf("24小时制：%tH%n",date);
 		System.out.printf("12小时制：%tI%n",date);
-		//M 分钟(不足两位补0)，m?
+		//M 分钟(不足两位补0)，m 月份全称(数字，不足两位补0)
 		System.out.printf("分钟全称：%tM%n",date);
-		System.out.printf("???：%tm%n",date);
+		System.out.printf("m月份全称：%tm%n",date);
 		//A 星期全称，a 星期简称
 		System.out.printf("星期全称：%tA%n",date);
 		System.out.printf("星期简称：%ta%n",date);
