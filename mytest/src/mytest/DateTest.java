@@ -67,5 +67,21 @@ public class DateTest{
 		System.out.printf(Locale.US,"英文星期全称：%tA%n",date);
 		System.out.printf(Locale.US,"英文星期简称：%ta%n",date);
 		
+		
+		//解析字符串为时间,SimpleDateFormat 的 parse 方法，可将指定的日期字符串转换为日期格式。
+		SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd");
+		// SimpleDateFormat ft = new SimpleDateFormat ("yyyy/MM/dd");
+	    String input = "2020-07-03";//如果是非 年-月-日格式，会报错。比如是 年/月/日 格式，那么 ft 必须是 yyyy-MM-dd 格式。
+	    // String input = "2020/07/03";// 年/月/日 格式, ft 必须是 yyyy-MM-dd 格式
+		System.out.print(input + " Parses as : ");
+	    Date t; 
+	    try { 
+		  t = ft.parse(input);//将字符串转为日期 Date 格式
+		  System.out.println(t); 
+	    } catch (ParseException e) { 
+		  System.out.println("Unparseable using " + ft); 
+	    }
+		
+		
 	}
 }
