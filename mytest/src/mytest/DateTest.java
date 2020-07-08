@@ -85,7 +85,7 @@ public class DateTest{
 		
 		//sleep() 使当前线程进入指定的休眠时间，单位是毫秒。必须对其进行捕获或声明以便抛出错误。
 		try{
-			long start = System.currentTimeMillis();//当前毫秒数
+			long start = System.currentTimeMillis();//当前毫秒数,类似于 php 的 microtime()
 			System.out.println(new Date());
 			Thread.sleep(1000*3);
 			System.out.println(new Date());
