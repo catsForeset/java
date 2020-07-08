@@ -17,6 +17,7 @@ public class RegexTest {
 		boolean m = Pattern.matches(pat,str);
 		System.out.println("字符串是否为'test'：" + m);
 		
+		
 		//{n} n 是非负整数。表示{n} 之前的字符正好匹配 n 次。
 		String f = "food";
 		String g = "group";
@@ -39,5 +40,20 @@ public class RegexTest {
 		System.out.println("字符串'" + f + "'是否不含有或者只含有一个'o'：" + Pattern.matches(p4,f));//匹配了第一个o
 		System.out.println("字符串'" + g + "'是否不含有或者只含有一个'o'：" + Pattern.matches(p4,g));
 		System.out.println("字符串'" + s + "'是否不含有或者只含有一个'o'：" + Pattern.matches(p4,s));
+		
+		
+		//[xyz] 字符集，匹配包含的任一字符
+		String px = ".*[abcd].*";
+		System.out.println("字符串'" + s + "'是否含有[abcd]集中的字符：" + Pattern.matches(px,s));
+		System.out.println("字符串'" + f + "'是否含有[abcd]集中的字符：" + Pattern.matches(px,f));
+		System.out.println("字符串'" + g + "'是否含有[abcd]集中的字符：" + Pattern.matches(px,g));
+		
+		//[^xyz] 反向字符集，匹配未包含的任何字符
+		String unpx = ".*[abcd].*";
+		String a = "abc";
+		String i = "33002";
+		System.out.println("字符串'" + s + "'是否含有不在[abcd]集中的字符：" + Pattern.matches(unpx,s));
+		System.out.println("字符串'" + i + "'是否含有不在[abcd]集中的字符：" + Pattern.matches(unpx,i));//?
+		System.out.println("字符串'" + a + "'是否含有不在[abcd]集中的字符：" + Pattern.matches(unpx,a));
 	}
 }
