@@ -49,11 +49,11 @@ public class RegexTest {
 		System.out.println("字符串'" + g + "'是否含有[abcd]集中的字符：" + Pattern.matches(px,g));
 		
 		//[^xyz] 反向字符集，匹配未包含的任何字符
-		String unpx = ".*[abcd].*";
+		String unpx = ".*[^abcd].*";
 		String a = "abc";
-		String i = "33002";
+		String i = "91247";
 		System.out.println("字符串'" + s + "'是否含有不在[abcd]集中的字符：" + Pattern.matches(unpx,s));
-		System.out.println("字符串'" + i + "'是否含有不在[abcd]集中的字符：" + Pattern.matches(unpx,i));//?
+		System.out.println("字符串'" + i + "'是否含有不在[abcd]集中的字符：" + Pattern.matches(unpx,i));
 		System.out.println("字符串'" + a + "'是否含有不在[abcd]集中的字符：" + Pattern.matches(unpx,a));
 	}
 }
