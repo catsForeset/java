@@ -2,6 +2,8 @@ package mytest;
 
 //引入正则表达式包
 import java.util.regex.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RegexTest {
 	public static void main(String[] args)
@@ -69,17 +71,32 @@ public class RegexTest {
 		System.out.println("字符串'" + str_b + "'是否有不在[0-9]集中的字符：" + Pattern.matches("[^0-9]",str_b));
 		
 		
-		
 		//* 零次或多次匹配前面的字符或子表达式
-		System.out.println("a* : " + Pattern.matches("a*",""));//a*,能匹配:空字符串,a,aaa...a
+		System.out.println("a* : " + Pattern.matches("a*","a"));//a*,能匹配:空字符串,a,aaa...a
 		System.out.println("ab* ：" + Pattern.matches("ab*","ab"));//ab*,能匹配:a,b,ab,abbbb...b
+		System.out.println("ab* ：" + Pattern.matches("a*b","ab"));
 		//+ 一次或多次匹配前面的字符或子表达式
 		System.out.println("a+ ：" + Pattern.matches("a+","aaa"));//a+,能匹配 a,aaa...a
 		System.out.println("ab+ ：" + Pattern.matches("ab+","abbbbb"));//ab+,能匹配 ab,abbbb...b
 		//? 零次或一次匹配前面的字符或子表达式
 		System.out.println("a? ：" + Pattern.matches("a?","a"));//a*,能匹配:空字符串,a
 		System.out.println("ab? ：" + Pattern.matches("ab?","a"));//ab?,能匹配 a,ab
-		System.out.println("abc? ：" + Pattern.matches("abc?","abc"));//ab?,能匹配 ab,abc
+		System.out.println("abc? ：" + Pattern.matches("abc?","a"));//ab?,能匹配 ab,abc
+		
+		
+		//捕获组 从左到右，第一个小括号内的内容就是第一组，依次分组
+		String line = "This order was placed for QT3000! OK?";
+		String pattern2 = "(\\D*)(\\d+)(.*)";//在 java 中使用两个反斜杠//等于其他语言的一个反斜杠/。//D等价于D,匹配非数字字符。
+		Pattern r = Pattern.compile(pattern2);
+		Matcher m2 = r.matcher(line);
+		if(m2.find()) {
+			System.out.println("Found value: " + m2.group(0) );//默认组
+			System.out.println("Found value: " + m2.group(1) );//第一组(\\D*)，匹配非数字
+			System.out.println("Found value: " + m2.group(2) );//第二组(\\d+)，匹配数字
+			System.out.println("Found value: " + m2.group(3) );//第三组(.*)，匹配任何字符
+		} else {
+			System.out.println("NO MATCH");
+		}
 		
 		
 		
