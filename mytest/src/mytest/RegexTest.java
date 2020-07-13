@@ -43,6 +43,7 @@ public class RegexTest {
 		
 		//x|y 匹配 x或y
 		System.out.println("字符串'" + f + "'是否含有字符'z'或字符'food'：" + Pattern.matches("z|food",f));
+		
 		//[xyz] 字符集，匹配包含的任一字符
 		String px = ".*[abcd].*";
 		System.out.println("字符串'" + s + "'是否含有[abcd]集中的字符：" + Pattern.matches(px,s));
@@ -66,6 +67,20 @@ public class RegexTest {
 		//[^a-z] 反向字符范围。匹配不在指定范围内的任何字符。
 		System.out.println("字符串'" + str_a + "'是否有不在[a-d]集中的字符：" + Pattern.matches("[^a-d]",str_a));
 		System.out.println("字符串'" + str_b + "'是否有不在[0-9]集中的字符：" + Pattern.matches("[^0-9]",str_b));
+		
+		
+		
+		//* 零次或多次匹配前面的字符或子表达式
+		System.out.println("a* : " + Pattern.matches("a*",""));//a*,能匹配:空字符串,a,aaa...a
+		System.out.println("ab* ：" + Pattern.matches("ab*","ab"));//ab*,能匹配:a,b,ab,abbbb...b
+		//+ 一次或多次匹配前面的字符或子表达式
+		System.out.println("a+ ：" + Pattern.matches("a+","aaa"));//a+,能匹配 a,aaa...a
+		System.out.println("ab+ ：" + Pattern.matches("ab+","abbbbb"));//ab+,能匹配 ab,abbbb...b
+		//? 零次或一次匹配前面的字符或子表达式
+		System.out.println("a? ：" + Pattern.matches("a?","a"));//a*,能匹配:空字符串,a
+		System.out.println("ab? ：" + Pattern.matches("ab?","a"));//ab?,能匹配 a,ab
+		System.out.println("abc? ：" + Pattern.matches("abc?","abc"));//ab?,能匹配 ab,abc
+		
 		
 		
 	}
