@@ -100,7 +100,7 @@ public class RegexTest {
 		}
 		
 		
-		// \b 匹配一个字的边界，即字与空格间的位置
+		// \b 匹配一个字的边界，即字与空格间的位置。记忆点：b 是 brim（边缘）的缩写，大写则是非边缘。
 		Pattern bp = Pattern.compile("e\\b");
 		Matcher bm = bp.matcher("The matches");
 		//find() 尝试查找与该模式匹配的输入序列的下一个子序列。find()之后才能知道查找结果，才能执行start(),end(),group()等方法
@@ -125,5 +125,17 @@ public class RegexTest {
 			System.out.println("\\B: " + Bmat.start());
 			System.out.println("\\B: " + Bmat.end());
 		}
+		
+		
+		// \d 匹配数字字符。记忆点，d 是 digital(数字)的缩写，D则是非数字字符。
+		Pattern dpat = Pattern.compile("\\d");
+		Matcher dmat = dpat.matcher("1223b");
+		System.out.println("\\d lookingAt(): " + dmat.lookingAt());
+		System.out.println("\\d matches(): " + dmat.matches());
+		// \D 匹配非数字字符
+		Pattern Dpat = Pattern.compile("\\D");
+		Matcher Dmat = Dpat.matcher("~");
+		System.out.println("\\D lookingAt(): " + Dmat.lookingAt());
+		System.out.println("\\D matches(): " + Dmat.matches());
 	}
 }
