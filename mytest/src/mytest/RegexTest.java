@@ -84,9 +84,10 @@ public class RegexTest {
 		System.out.println("abc? ：" + Pattern.matches("abc?","a"));//ab?,能匹配 ab,abc
 		
 		
+		
 		//捕获组 从左到右，第一个小括号内的内容就是第一组，依次分组
 		String line = "This order was placed for QT3000! OK?";
-		String pattern2 = "(\\D*)(\\d+)(.*)";//在 java 中使用两个反斜杠//等于其他语言的一个反斜杠/。//D等价于D,匹配非数字字符。
+		String pattern2 = "(\\D*)(\\d+)(.*)";//在 java 中使用两个反斜杠\\等于其他语言的一个反斜杠\。\\D等价于\D,匹配非数字字符。
 		Pattern r = Pattern.compile(pattern2);
 		Matcher m2 = r.matcher(line);
 		if(m2.find()) {
@@ -99,6 +100,13 @@ public class RegexTest {
 		}
 		
 		
-		
+		// \b 匹配一个字的边界，即字与空格间的位置
+		Pattern bp = Pattern.compile("e\\b");
+		Matcher bm = bp.matcher("The matche ");
+		// System.out.println("start(): " + bm);//在 java 中使用两个反斜杠\\等于其他语言的一个反斜杠\,
+		while(bm.find()) {
+			System.out.println(bm.start());//返回匹配成功的索引
+			System.out.println(bm.end());//返回最后匹配字符后一位索引
+		}
 	}
 }
