@@ -102,11 +102,11 @@ public class RegexTest {
 		
 		// \b 匹配一个字的边界，即字与空格间的位置
 		Pattern bp = Pattern.compile("e\\b");
-		Matcher bm = bp.matcher("The matche ");
+		Matcher bm = bp.matcher("The matches");
 		//find() 尝试查找与该模式匹配的输入序列的下一个子序列。find()之后才能知道查找结果，才能执行start(),end(),group()等方法
 		while(bm.find()) {
-			System.out.println(bm.start());//返回匹配成功的索引
-			System.out.println(bm.end());//返回最后匹配字符后一位索引
+			System.out.println("\\b: " + bm.start());//返回匹配成功的索引
+			System.out.println("\\b: " + bm.end());//返回最后匹配字符后一位索引
 		}
 		
 		
@@ -116,5 +116,14 @@ public class RegexTest {
 		Matcher mtest = ptest.matcher("aaaaab");
 		System.out.println("lookingAt() :" + mtest.lookingAt());
 		System.out.println("matches() :" + mtest.matches());
+		
+		
+		// \B 匹配非边界的字符，即不再空格旁边的字符
+		Pattern Bpat = Pattern.compile("e\\B");
+		Matcher Bmat = Bpat.matcher("The matches");
+		while(Bmat.find()) {
+			System.out.println("\\B: " + Bmat.start());
+			System.out.println("\\B: " + Bmat.end());
+		}
 	}
 }
