@@ -103,10 +103,18 @@ public class RegexTest {
 		// \b 匹配一个字的边界，即字与空格间的位置
 		Pattern bp = Pattern.compile("e\\b");
 		Matcher bm = bp.matcher("The matche ");
-		// System.out.println("start(): " + bm);//在 java 中使用两个反斜杠\\等于其他语言的一个反斜杠\,
+		//find() 尝试查找与该模式匹配的输入序列的下一个子序列。find()之后才能知道查找结果，才能执行start(),end(),group()等方法
 		while(bm.find()) {
 			System.out.println(bm.start());//返回匹配成功的索引
 			System.out.println(bm.end());//返回最后匹配字符后一位索引
 		}
+		
+		
+		//lookingAt 匹配输入的序列，从第一个字符开始匹配，有符合匹配项的就返回 true ，不要求整个序列都匹配
+		//matches 匹配输入的序列，要求整个序列都匹配
+		Pattern ptest = Pattern.compile("b*");//或ab*,lookingAt都能匹配成功
+		Matcher mtest = ptest.matcher("aaaaab");
+		System.out.println("lookingAt() :" + mtest.lookingAt());
+		System.out.println("matches() :" + mtest.matches());
 	}
 }
