@@ -191,6 +191,14 @@ public class RegexTest {
 		System.out.println("\\S: " + Pattern.matches("\\S","l"));
 		
 		
+		// \w 匹配字类字符，包括下划线。与[A-Za-z0-9_]等效。记忆点：w 是 word 的缩写。W则是非字类。
+		Pattern wpat = Pattern.compile("\\w");
+		Matcher wmat = wpat.matcher("5");
+		System.out.println("\\w: " + wmat.matches());
+		// \W 匹配非字类字符，与[^A-Za-z0-9_]等效
+		Pattern Wpat = Pattern.compile("\\W");
+		Matcher Wmat = Wpat.matcher(" ");//空白也是非字符，在[^A-Za-z0-9_]范围内
+		System.out.println("\\W: " + Wmat.matches());
 		
 	}
 }
