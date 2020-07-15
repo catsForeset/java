@@ -137,5 +137,32 @@ public class RegexTest {
 		Matcher Dmat = Dpat.matcher("~");
 		System.out.println("\\D lookingAt(): " + Dmat.lookingAt());
 		System.out.println("\\D matches(): " + Dmat.matches());
+		
+		
+		// \f 匹配换页符
+		Pattern fpat = Pattern.compile("\\f");
+		Matcher fmat = fpat.matcher("gonna change page \f");
+		while(fmat.find()) {
+			System.out.println("\\f start()" + fmat.start());
+			System.out.println("\\f end()" + fmat.end());
+		}
+		// \n 匹配换行符
+		Pattern npat = Pattern.compile("\\n");
+		Matcher nmat = npat.matcher("test\ntest\n");
+		System.out.print("test\ntest\n ");
+		while(nmat.find()) {
+			System.out.println("\\n start()" + nmat.start());
+			System.out.println("\\n end()" + nmat.end());
+		}
+		// \r 匹配回车符
+		Pattern rpat = Pattern.compile("\\r");
+		Matcher rmat = rpat.matcher("hello hhhhhhh\rgoodbye");//回车符，将光标返回行的开头处
+		System.out.println("hello hhhhhhh\rgoodbye");
+		while(rmat.find()){
+			System.out.println("\\r start()" + rmat.start());
+			System.out.println("\\r end()" + rmat.end());
+		}
+		
+		
 	}
 }
