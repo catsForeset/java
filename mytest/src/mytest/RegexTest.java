@@ -155,13 +155,35 @@ public class RegexTest {
 			System.out.println("\\n end()" + nmat.end());
 		}
 		// \r 匹配回车符
+		//回车符，将光标返回行的开头处。可能会将这一行之前的输出覆盖掉。
 		Pattern rpat = Pattern.compile("\\r");
-		Matcher rmat = rpat.matcher("hello hhhhhhh\rgoodbye");//回车符，将光标返回行的开头处
+		Matcher rmat = rpat.matcher("hello hhhhhhh\rgoodbye");
 		System.out.println("hello hhhhhhh\rgoodbye");
 		while(rmat.find()){
 			System.out.println("\\r start()" + rmat.start());
 			System.out.println("\\r end()" + rmat.end());
 		}
+		
+		
+		// \t 制表符匹配
+		Pattern tpat = Pattern.compile("\\t");
+		Matcher tmat = tpat.matcher("hhhhhhh\tmmm");
+		System.out.println("hhhhhhh\tmmm");
+		while(tmat.find()){
+			System.out.println("\\t start()" + tmat.start());
+			System.out.println("\\t end()" + tmat.end());
+		}
+		// \v 垂直制表符匹配,\v非法转义字符？
+		// Pattern vpat = Pattern.compile("\\v");
+		// Matcher vmat = vpat.matcher("123\v456");
+		// System.out.println("123\v456");
+		// while(vmat.find()){
+			// System.out.println("\\v start()" + vmat.start());
+			// System.out.println("\\v end()" + vmat.end());
+		// }
+		
+		
+		
 		
 		
 	}
