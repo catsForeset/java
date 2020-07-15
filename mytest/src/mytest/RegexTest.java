@@ -200,5 +200,9 @@ public class RegexTest {
 		Matcher Wmat = Wpat.matcher(" ");//空白也是非字符，在[^A-Za-z0-9_]范围内
 		System.out.println("\\W: " + Wmat.matches());
 		
+		
+		// \xn 匹配十六进制转义码。其中 n 是十六进制转义码，即 ASCII 表中的十六进制码。
+		System.out.println("\\xn: " + Pattern.matches("\\x41","A"));//字母 A 的 ASCII 码对应的十六进制码是 0x41
+		
 	}
 }
