@@ -183,6 +183,12 @@ public class RegexTest {
 		// }
 		
 		
+		// \s 匹配任何空白字符。与 [ \f\n\r\t\v] 等效。记忆点：s 是 space（空白）的缩写。S则是非空白。
+		System.out.println("\\s: " + Pattern.matches("\\s"," "));
+		System.out.println("\\s: " + Pattern.matches("\\s","\t"));
+		// \S 匹配任何非空白字符。与 [^ \f\n\r\t\v] 等效
+		System.out.println("\\S: " + Pattern.matches("\\S","\t"));
+		System.out.println("\\S: " + Pattern.matches("\\S","l"));
 		
 		
 		
