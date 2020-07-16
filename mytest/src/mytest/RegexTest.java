@@ -204,5 +204,26 @@ public class RegexTest {
 		// \xn 匹配十六进制转义码。其中 n 是十六进制转义码，即 ASCII 表中的十六进制码。
 		System.out.println("\\xn: " + Pattern.matches("\\x41","A"));//字母 A 的 ASCII 码对应的十六进制码是 0x41
 		
+		
+		// \num 反向引用捕获组的数据。num是一个正整数。
+		Pattern numpat = Pattern.compile("(.)\\1");// 向后引用捕获组（.）的数据一次。即可匹配两个相同的字符。
+		Matcher nummat = numpat.matcher("aa dfh bb asd uuuu");//第一次匹配到a，最后一个必须匹配到a，则是aa。其他同理。
+		while(nummat.find()) {
+			System.out.println("\\num: " + nummat.group());
+			System.out.println("\\num statr(): " + nummat.start());
+			System.out.println("\\num end(): " + nummat.end());
+		}
+		//第一个圆括号内的正则匹配字符a，则在字符串最后\1这个位置必须是字符a,第二个括号匹配字符b,在倒数第二个位置\2必须是字符b
+		Pattern numpat2 = Pattern.compile("([a-z])([a-z])\\2\\1");
+		Matcher nummat2 = numpat2.matcher("abba aaaa bbbb baab");
+		//第一组匹配到 a(a)，第二组匹配到 b(ab)，第三组匹配到 c(abc)，\3表示最后一个必须是第三组匹配的 c(abcc)，\1表示表示倒数第二个必须是第一组匹配到的 a(abcac)，\2表示倒数第三个必须是第二组匹配到的 b(abcbac)。
+		// Pattern numpat2 = Pattern.compile("([a-z])([a-z])([a-z])\\2\\1\\3");//可匹配到abcbca
+		// Matcher nummat2 = numpat2.matcher("abcbca");
+		while(nummat2.find()) {
+			System.out.println("\\nums: " + nummat2.group());
+			System.out.println("\\nums statr(): " + nummat2.start());
+			System.out.println("\\nums end(): " + nummat2.end());
+		}
+		
 	}
 }
