@@ -225,5 +225,9 @@ public class RegexTest {
 			System.out.println("\\nums end(): " + nummat2.end());
 		}
 		
+		
+		// \n,如果 n 是八进制数，则 \n 是八进制转义。如果 n 前面有捕获子表达式，则 \n 是反向引用。
+		System.out.println("\\n 八进制: " + Pattern.matches("\\0101","A"));//字母 A 的 ASCII 码对应的八进制码是 0101
+		System.out.println("\\n 反向引用: " + Pattern.matches("(.)\\1","AA"));
 	}
 }
