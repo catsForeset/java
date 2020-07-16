@@ -226,8 +226,15 @@ public class RegexTest {
 		}
 		
 		
-		// \n,如果 n 是八进制数，则 \n 是八进制转义。如果 n 前面有捕获子表达式，则 \n 是反向引用。
+		// \n 如果 n 是八进制数，则 \n 是八进制转义。如果 n 前面有捕获子表达式，则 \n 是反向引用。
 		System.out.println("\\n 八进制: " + Pattern.matches("\\0101","A"));//字母 A 的 ASCII 码对应的八进制码是 0101
 		System.out.println("\\n 反向引用: " + Pattern.matches("(.)\\1","AA"));
+		
+		
+		// \nm 如果 \nm 之前有 nm 个子表达式，则 \nm 是反向引用。如果 \nm 之前有 n 个子表达式，则 \n 是反向引用，后面跟有字符 m。
+		System.out.println("\\nm 反向引用加字符: " + Pattern.matches("(.)\\1a","AAa"));
+		System.out.println("\\nm 反向引用加字符: " + Pattern.matches("(.)\\12","AA2"));
+		System.out.println("\\nm 反向引用: " + Pattern.matches("(.)(.)(.)(.)(.)(.)(.)(.)(.)(.)(.)\\11","AAAAAAAAAAAA"));//最后一位（第12位）和第 11 组匹配的一致
+		
 	}
 }
