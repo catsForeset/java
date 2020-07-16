@@ -236,5 +236,11 @@ public class RegexTest {
 		System.out.println("\\nm 反向引用加字符: " + Pattern.matches("(.)\\12","AA2"));
 		System.out.println("\\nm 反向引用: " + Pattern.matches("(.)(.)(.)(.)(.)(.)(.)(.)(.)(.)(.)\\11","AAAAAAAAAAAA"));//最后一位（第12位）和第 11 组匹配的一致
 		
+		
+		// \nml 当 n 是八进制数 (0-3)，m 和 l 是八进制数 (0-7) 时，匹配八进制转义码 nml。
+		System.out.println("\\nml 八进制: " + Pattern.matches("\\0175","}"));//符号 } 的 ASCII 码对应的八进制码是 0175
+		
+		
+		
 	}
 }
