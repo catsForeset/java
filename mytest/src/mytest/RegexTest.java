@@ -201,7 +201,7 @@ public class RegexTest {
 		System.out.println("\\W: " + Wmat.matches());
 		
 		
-		// \xn 匹配十六进制转义码。其中 n 是十六进制转义码，即 ASCII 表中的十六进制码。
+		// \xn 匹配十六进制转义码。其中 n 是十六进制转义码，即 ASCII 表中的十六进制码。记忆点，前缀 x 值十六进制。
 		System.out.println("\\xn: " + Pattern.matches("\\x41","A"));//字母 A 的 ASCII 码对应的十六进制码是 0x41
 		
 		
@@ -241,6 +241,8 @@ public class RegexTest {
 		System.out.println("\\nml 八进制: " + Pattern.matches("\\0175","}"));//符号 } 的 ASCII 码对应的八进制码是 0175
 		
 		
-		
+		// \\un 匹配 Unicode 字符。n 是以四位十六进制数表示的 Unicode 字符。可参考 Unicode 码表。记忆点：前缀 u 指的是 Unicode 字符。 匹配 Unicode 字符。n 是以四位十六进制数表示的 Unicode 字符。可参考 Unicode 码表。记忆点：前缀 u 指的是 Unicode 字符。
+		System.out.println("\\un Unicode: " + Pattern.matches("\\u0041","A"));//字母 A 的 Unicode 码是 U+0041。
+
 	}
 }
