@@ -85,7 +85,7 @@ public class RegexTest {
 		
 		
 		
-		//捕获组 从左到右，第一个小括号内的内容就是第一组，依次分组
+		//(pattern) 捕获组,从左到右，第一个小括号内的内容就是第一组，依次分组
 		String line = "This order was placed for QT3000! OK?";
 		String pattern2 = "(\\D*)(\\d+)(.*)";//在 java 中使用两个反斜杠\\等于其他语言的一个反斜杠\。\\D等价于\D,匹配非数字字符。
 		Pattern r = Pattern.compile(pattern2);
@@ -99,6 +99,35 @@ public class RegexTest {
 			System.out.println("NO MATCH");
 		}
 		
+		
+		//(?:pattern) 匹配 pattern 但不捕获该匹配的子表达式。
+		Pattern r3 = Pattern.compile("industr(?:y|ies)");//不匹配 industr，只可匹配 industry 和 industries
+		Matcher m3 = r3.matcher("industry industries industr industroooo");
+		while(m3.find()) {
+			System.out.println("Found value 3: " + m3.group());
+			System.out.println("Found value 3: " + m3.start());
+			System.out.println("Found value 3: " + m3.end());
+		}
+		
+		//(?=pattern) 执行正向预测先行搜索的子表达式, 匹配处于匹配 pattern 的字符串的起始点的字符串。
+		Pattern r4 = Pattern.compile("industr(?=y|ies)");//不匹配 industr。只可匹配 industry 和 industries 里面的 industr 部分。
+		Matcher m4 = r4.matcher("industry industries industr industroooo");//
+		while(m4.find()) {
+			System.out.println("Found value 4: " + m4.group());
+			System.out.println("Found value 4: " + m4.start());
+			System.out.println("Found value 4: " + m4.end());
+		}
+		
+		//(?!pattern) 执行反向预测先行搜索的子表达式，该表达式匹配不处于匹配 pattern 的字符串的起始点的搜索字符串。
+		Pattern r5 = Pattern.compile("industr(?!y|ies)");//匹配除 industry 和 industries 之外的所有字符串的 industr 部分。
+		Matcher m5 = r5.matcher("industry industries industr industroooo");//
+		while(m5.find()) {
+			System.out.println("Found value 5: " + m5.group());
+			System.out.println("Found value 5: " + m5.start());
+			System.out.println("Found value 5: " + m5.end());
+		}
+		
+		/*
 		
 		// \b 匹配一个字的边界，即字与空格间的位置。记忆点：b 是 brim（边缘）的缩写，大写则是非边缘。
 		Pattern bp = Pattern.compile("e\\b");
@@ -250,11 +279,25 @@ public class RegexTest {
 		//常用正则表达式
 		System.out.println("中文：" + Pattern.matches("[\u4e00-\\u9fa5]","换"));
 		System.out.println("双字节字符：" + Pattern.matches("[^\\x00-\\xff]","，"));//中文逗号
+		
 		Pattern upat = Pattern.compile("[a-zA-z]+://[^\\s]*");//准确的正则：(https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]
 		Matcher umat = upat.matcher("http://www.baidu.com");
 		while(umat.find()) {
 			System.out.println("匹配url地址：" + umat.group());
 		}
+		
+		Pattern mobile = Pattern.compile("[1-9][0-9]{4,}");
+		Matcher mmobile = mobile.matcher("1158745236");
+		while(mmobile.find()) {
+			System.out.println("匹配qq号：" + mmobile.group());
+		}
+		
+		Pattern post = Pattern.compile("[1-9]\\d{5}(?!\\d)");
+		Matcher mpost = post.matcher("621102f3");
+		while(mpost.find()) {
+			System.out.println("匹配中国邮政编码：" + mpost.group());
+		}
+		*/
 		
 	}
 }
