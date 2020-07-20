@@ -243,6 +243,18 @@ public class RegexTest {
 		
 		// \\un 匹配 Unicode 字符。n 是以四位十六进制数表示的 Unicode 字符。可参考 Unicode 码表。记忆点：前缀 u 指的是 Unicode 字符。 匹配 Unicode 字符。n 是以四位十六进制数表示的 Unicode 字符。可参考 Unicode 码表。记忆点：前缀 u 指的是 Unicode 字符。
 		System.out.println("\\un Unicode: " + Pattern.matches("\\u0041","A"));//字母 A 的 Unicode 码是 U+0041。
-
+		
+		
+		
+		
+		//常用正则表达式
+		System.out.println("中文：" + Pattern.matches("[\u4e00-\\u9fa5]","换"));
+		System.out.println("双字节字符：" + Pattern.matches("[^\\x00-\\xff]","，"));//中文逗号
+		Pattern upat = Pattern.compile("[a-zA-z]+://[^\\s]*");//准确的正则：(https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]
+		Matcher umat = upat.matcher("http://www.baidu.com");
+		while(umat.find()) {
+			System.out.println("匹配url地址：" + umat.group());
+		}
+		
 	}
 }
