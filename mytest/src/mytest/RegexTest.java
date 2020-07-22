@@ -127,7 +127,7 @@ public class RegexTest {
 			System.out.println("Found value 5: " + m5.end());
 		}
 		
-		/*
+		
 		
 		// \b 匹配一个字的边界，即字与空格间的位置。记忆点：b 是 brim（边缘）的缩写，大写则是非边缘。
 		Pattern bp = Pattern.compile("e\\b");
@@ -297,7 +297,15 @@ public class RegexTest {
 		while(mpost.find()) {
 			System.out.println("匹配中国邮政编码：" + mpost.group());
 		}
-		*/
+		
+	
+		Pattern id = Pattern.compile("^(\\d{6})(\\d{4})(\\d{2})(\\d{2})(\\d{3})([0-9]|X)$");//6位前缀，4位年份，2位月份，2位日期，尾数4位（其中一位可能为X）
+		Matcher mid = id.matcher("548648199606082556");
+		while(mid.find()) {
+			System.out.println("简单匹配18位身份证号码：" + mid.group());
+		}
+		
+		
 		
 	}
 }
