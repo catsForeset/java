@@ -305,6 +305,13 @@ public class RegexTest {
 			System.out.println("简单匹配18位身份证号码：" + mid.group());
 		}
 		
+		String pinteger = "^-?[1-9]\\d*$";//正整数 "^[1-9]\\d*$";负整数 "^-[1-9]\\d*$";整数 "^-?[1-9]\\d*$";
+		Pattern integer = Pattern.compile(pinteger);
+		Matcher minteger = integer.matcher("-45");
+		while(minteger.find()) {
+			System.out.println("匹配整数：" + minteger.group());
+		}
+		
 		
 		
 	}
