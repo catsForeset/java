@@ -274,6 +274,19 @@ public class RegexTest {
 		System.out.println("\\un Unicode: " + Pattern.matches("\\u0041","A"));//字母 A 的 Unicode 码是 U+0041。
 		
 		
+		// ^ 匹配输入字符串开始的位置
+		Pattern start = Pattern.compile("^1");// ^1 的含义是，如果匹配的字符串第一个字符是1，则匹配成功，否则失败
+		Matcher mstart = start.matcher("111");//如果匹配的是"211"，则匹配不到
+		while(mstart.find()) {
+			System.out.println("^匹配字符串起始的位置: " + mstart.group());
+		}
+		
+		// $ 匹配输入字符串结尾的位置
+		Pattern end = Pattern.compile("[0-9]$");//如果以数字结尾，则匹配成功，否则失败
+		Matcher mend = end.matcher("fdhdjk588");
+		while(mend.find()) {
+			System.out.println("^匹配字符串结尾的位置: " + mend.group());
+		}
 		
 		
 		//常用正则表达式
