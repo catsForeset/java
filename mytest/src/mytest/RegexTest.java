@@ -305,14 +305,19 @@ public class RegexTest {
 			System.out.println("简单匹配18位身份证号码：" + mid.group());
 		}
 		
-		String pinteger = "^-?[1-9]\\d*$";//正整数 "^[1-9]\\d*$";负整数 "^-[1-9]\\d*$";整数 "^-?[1-9]\\d*$";
+		String pinteger = "^-?[1-9]\\d*$";//正整数 "^[1-9]\\d*$";负整数 "^-[1-9]\\d*$";整数 "^-?[1-9]\\d*$";非负整数 "^[1-9]\\d*|0$";非正整数 "^-[1-9]\\d*|0$"
 		Pattern integer = Pattern.compile(pinteger);
 		Matcher minteger = integer.matcher("-45");
 		while(minteger.find()) {
 			System.out.println("匹配整数：" + minteger.group());
 		}
 		
-		
+		Pattern floats = Pattern.compile("^[1-9]\\d*\\.\\d*|0\\.\\d*[1-9]\\d*$");// . 匹配除"\r\n"之外的任何单个字符。\\.匹配字符"."
+		//负浮点数 "^-[1-9]\\d*\\.\\d*|0\\.\\d*[1-9]\\d*$"
+		Matcher mfloats = floats.matcher("0.1");
+		while(mfloats.find()) {
+			System.out.println("匹配浮点数：" + mfloats.group());
+		}
 		
 	}
 }
